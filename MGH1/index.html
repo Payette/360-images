@@ -5,8 +5,28 @@
     <title>360&deg; Image</title>
     <meta name="description" content="360&deg; Image">
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script>
+    function testDeviceOrientation() {
+  if (typeof DeviceOrientationEvent !== 'function') {
+    return setResult('DeviceOrientationEvent not detected')
+  }
+  if (typeof DeviceOrientationEvent.requestPermission !== 'function') {
+    return setResult('DeviceOrientationEvent.requestPermission not detected')
+  }
+  DeviceOrientationEvent.requestPermission().then(function(result) {
+    return setResult(result);
+  });
+}
+
+function setResult(result) {
+  document.getElementById('result').innerHTML = 'RESULT: ' + result;
+}
+    </script>
   </head>
   <body>
+    <button onclick="testDeviceOrientation()">Test Device Orientation</button>
+<br /><br />
+<div id="result"></div>
     <a-scene vr-mode-ui="enabled: false">
       <a-sky src="MGH-1.jpg" rotation="0 -130 0"></a-sky>
     </a-scene>
