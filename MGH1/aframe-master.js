@@ -51,7 +51,7 @@ function(a){a=P(a);for(var c=v.length;c--;)for(var d=v[c],b=d.animations,f=b.len
 },{}],3:[function(_dereq_,module,exports){
 module.exports = function numtype(num, def) {
 	return typeof num === 'number'
-		? num 
+		? num
 		: (typeof def === 'number' ? def : 0)
 }
 },{}],4:[function(_dereq_,module,exports){
@@ -209,7 +209,7 @@ module.exports = {
             var value = attributes[key];
             style.setAttribute('data-' + key, value);
         }
-        
+
         if (style.sheet) { // for jsdom and IE9+
             style.innerHTML = cssText;
             style.sheet.cssText = cssText;
@@ -232,11 +232,11 @@ module.exports = function (a, b) {
     if (!Buffer.isBuffer(b)) return undefined;
     if (typeof a.equals === 'function') return a.equals(b);
     if (a.length !== b.length) return false;
-    
+
     for (var i = 0; i < a.length; i++) {
         if (a[i] !== b[i]) return false;
     }
-    
+
     return true;
 };
 
@@ -2606,7 +2606,7 @@ function forEach(list, iterator, context) {
     if (arguments.length < 3) {
         context = this
     }
-    
+
     if (toString.call(list) === '[object Array]')
         forEachArray(list, iterator, context)
     else if (typeof list === 'string')
@@ -2833,8 +2833,8 @@ var CAP_HEIGHTS = ['H', 'I', 'N', 'E', 'F', 'K', 'L', 'T', 'U', 'V', 'W', 'X', '
 
 var TAB_ID = '\t'.charCodeAt(0)
 var SPACE_ID = ' '.charCodeAt(0)
-var ALIGN_LEFT = 0, 
-    ALIGN_CENTER = 1, 
+var ALIGN_LEFT = 0,
+    ALIGN_CENTER = 1,
     ALIGN_RIGHT = 2
 
 module.exports = function createLayout(opt) {
@@ -2858,10 +2858,10 @@ TextLayout.prototype.update = function(opt) {
     throw new Error('must provide a valid bitmap font')
 
   var glyphs = this.glyphs
-  var text = opt.text||'' 
+  var text = opt.text||''
   var font = opt.font
   this._setupSpaceGlyphs(font)
-  
+
   var lines = wordWrap.lines(text, opt)
   var minWidth = opt.width || 0
 
@@ -2885,7 +2885,7 @@ TextLayout.prototype.update = function(opt) {
 
   //draw text along baseline
   y -= height
-  
+
   //the metrics for this text layout
   this._width = maxLineWidth
   this._height = height
@@ -2895,7 +2895,7 @@ TextLayout.prototype.update = function(opt) {
   this._capHeight = getCapHeight(font)
   this._lineHeight = lineHeight
   this._ascender = lineHeight - descender - this._xHeight
-    
+
   //layout each glyph
   var self = this
   lines.forEach(function(line, lineIndex) {
@@ -2903,17 +2903,17 @@ TextLayout.prototype.update = function(opt) {
     var end = line.end
     var lineWidth = line.width
     var lastGlyph
-    
+
     //for each glyph in that line...
     for (var i=start; i<end; i++) {
       var id = text.charCodeAt(i)
       var glyph = self.getGlyph(font, id)
       if (glyph) {
-        if (lastGlyph) 
+        if (lastGlyph)
           x += getKerning(font, lastGlyph.id, glyph.id)
 
         var tx = x
-        if (align === ALIGN_CENTER) 
+        if (align === ALIGN_CENTER)
           tx += (maxLineWidth-lineWidth)/2
         else if (align === ALIGN_RIGHT)
           tx += (maxLineWidth-lineWidth)
@@ -2923,7 +2923,7 @@ TextLayout.prototype.update = function(opt) {
           data: glyph,
           index: i,
           line: lineIndex
-        })  
+        })
 
         //move pen forward
         x += glyph.xadvance + letterSpacing
@@ -2950,15 +2950,15 @@ TextLayout.prototype._setupSpaceGlyphs = function(font) {
   //try to get space glyph
   //then fall back to the 'm' or 'w' glyphs
   //then fall back to the first glyph available
-  var space = getGlyphById(font, SPACE_ID) 
-          || getMGlyph(font) 
+  var space = getGlyphById(font, SPACE_ID)
+          || getMGlyph(font)
           || font.chars[0]
 
   //and create a fallback for tab
   var tabWidth = this._opt.tabSize * space.xadvance
   this._fallbackSpaceGlyph = space
   this._fallbackTabGlyph = xtend(space, {
-    x: 0, y: 0, xadvance: tabWidth, id: TAB_ID, 
+    x: 0, y: 0, xadvance: tabWidth, id: TAB_ID,
     xoffset: 0, yoffset: 0, width: 0, height: 0
   })
 }
@@ -2967,9 +2967,9 @@ TextLayout.prototype.getGlyph = function(font, id) {
   var glyph = getGlyphById(font, id)
   if (glyph)
     return glyph
-  else if (id === TAB_ID) 
+  else if (id === TAB_ID)
     return this._fallbackTabGlyph
-  else if (id === SPACE_ID) 
+  else if (id === SPACE_ID)
     return this._fallbackSpaceGlyph
   return null
 }
@@ -3016,7 +3016,7 @@ TextLayout.prototype.computeMetrics = function(text, start, end, width) {
     }
     count++
   }
-  
+
   //make sure rightmost edge lines up with rendered glyphs
   if (lastGlyph)
     curWidth += lastGlyph.xoffset
@@ -3029,7 +3029,7 @@ TextLayout.prototype.computeMetrics = function(text, start, end, width) {
 }
 
 //getters for the private vars
-;['width', 'height', 
+;['width', 'height',
   'descender', 'ascender',
   'xHeight', 'baseline',
   'capHeight',
@@ -3065,7 +3065,7 @@ function getXHeight(font) {
   for (var i=0; i<X_HEIGHTS.length; i++) {
     var id = X_HEIGHTS[i].charCodeAt(0)
     var idx = findChar(font.chars, id)
-    if (idx >= 0) 
+    if (idx >= 0)
       return font.chars[idx].height
   }
   return 0
@@ -3075,7 +3075,7 @@ function getMGlyph(font) {
   for (var i=0; i<M_WIDTHS.length; i++) {
     var id = M_WIDTHS[i].charCodeAt(0)
     var idx = findChar(font.chars, id)
-    if (idx >= 0) 
+    if (idx >= 0)
       return font.chars[idx]
   }
   return 0
@@ -3085,7 +3085,7 @@ function getCapHeight(font) {
   for (var i=0; i<CAP_HEIGHTS.length; i++) {
     var id = CAP_HEIGHTS[i].charCodeAt(0)
     var idx = findChar(font.chars, id)
-    if (idx >= 0) 
+    if (idx >= 0)
       return font.chars[idx].height
   }
   return 0
@@ -3155,7 +3155,7 @@ module.exports = function(opt, cb) {
     if (!body)
       return cb(new Error('no body result'))
 
-    var binary = false 
+    var binary = false
 
     //if the response type is an array buffer,
     //we need to convert it into a regular Buffer object
@@ -3169,9 +3169,9 @@ module.exports = function(opt, cb) {
     if (isBinaryFormat(body)) {
       binary = true
       //if we have a string, turn it into a Buffer
-      if (typeof body === 'string') 
+      if (typeof body === 'string')
         body = new Buffer(body, 'binary')
-    } 
+    }
 
     //we are not parsing a binary format, just ASCII/XML/etc
     if (!binary) {
@@ -3209,7 +3209,7 @@ function getBinaryOpts(opt) {
   //IE10+ and other modern browsers support array buffers
   if (xml2)
     return xtend(opt, { responseType: 'arraybuffer' })
-  
+
   if (typeof self.XMLHttpRequest === 'undefined')
     throw new Error('your browser does not support XHR loading')
 
@@ -3375,7 +3375,7 @@ function splitLine(line, idx) {
     return null
 
   var space = line.indexOf(' ')
-  if (space === -1) 
+  if (space === -1)
     throw new Error("no named row at line " + idx)
 
   var key = line.substring(0, space)
@@ -3383,7 +3383,7 @@ function splitLine(line, idx) {
   line = line.substring(space + 1)
   //clear "letter" field as it is non-standard and
   //requires additional complexity to parse " / = symbols
-  line = line.replace(/letter=[\'\"]\S+[\'\"]/gi, '')  
+  line = line.replace(/letter=[\'\"]\S+[\'\"]/gi, '')
   line = line.split("=")
   line = line.map(function(str) {
     return str.trim().match((/(".*?"|[^"\s]+)+(?=\s*|\s*$)/g))
@@ -3454,7 +3454,7 @@ module.exports = function readBMFontBinary(buf) {
   var vers = buf.readUInt8(i++)
   if (vers > 3)
     throw new Error('Only supports BMFont Binary v3 (BMFont App v1.10)')
-  
+
   var target = { kernings: [], chars: [] }
   for (var b=0; b<5; b++)
     i += readBlock(target, buf, i)
@@ -3470,7 +3470,7 @@ function readBlock(target, buf, i) {
   i += 4
 
   switch(blockID) {
-    case 1: 
+    case 1:
       target.info = readInfo(buf, i)
       break
     case 2:
@@ -3498,11 +3498,11 @@ function readInfo(buf, i) {
   info.unicode = (bitField >> 6) & 1
   info.italic = (bitField >> 5) & 1
   info.bold = (bitField >> 4) & 1
-  
-  //fixedHeight is only mentioned in binary spec 
+
+  //fixedHeight is only mentioned in binary spec
   if ((bitField >> 3) & 1)
     info.fixedHeight = 1
-  
+
   info.charset = buf.readUInt8(i+3) || ''
   info.stretchH = buf.readUInt16LE(i+4)
   info.aa = buf.readUInt8(i+6)
@@ -3588,7 +3588,7 @@ function readKernings(buf, i, blockSize) {
 function readNameNT(buf, offset) {
   var pos=offset
   for (; pos<buf.length; pos++) {
-    if (buf[pos] === 0x00) 
+    if (buf[pos] === 0x00)
       break
   }
   return buf.slice(offset, pos)
@@ -3602,7 +3602,7 @@ var parseAttributes = _dereq_('./parse-attribs')
 var parseFromString = _dereq_('xml-parse-from-string')
 
 //In some cases element.attribute.nodeName can return
-//all lowercase values.. so we need to map them to the correct 
+//all lowercase values.. so we need to map them to the correct
 //case
 var NAME_MAP = {
   scaleh: 'scaleH',
@@ -3617,7 +3617,7 @@ var NAME_MAP = {
 
 module.exports = function parse(data) {
   data = data.toString()
-  
+
   var xmlRoot = parseFromString(data)
   var output = {
     pages: [],
@@ -3655,7 +3655,7 @@ module.exports = function parse(data) {
       return
     var childTag = key.substring(0, key.length-1)
     var children = element.getElementsByTagName(childTag)
-    for (var i=0; i<children.length; i++) {      
+    for (var i=0; i<children.length; i++) {
       var child = children[i]
       output[key].push(parseAttributes(getAttribs(child)))
     }
@@ -3685,7 +3685,7 @@ function mapName(nodeName) {
 }
 },{"./parse-attribs":30,"xml-parse-from-string":49}],30:[function(_dereq_,module,exports){
 //Some versions of GlyphDesigner have a typo
-//that causes some bugs with parsing. 
+//that causes some bugs with parsing.
 //Need to confirm with recent version of the software
 //to see whether this is still an issue or not.
 var GLYPH_DESIGNER_ERROR = 'chasrset'
@@ -3697,12 +3697,12 @@ module.exports = function parseAttributes(obj) {
   }
 
   for (var k in obj) {
-    if (k === 'face' || k === 'charset') 
+    if (k === 'face' || k === 'charset')
       continue
     else if (k === 'padding' || k === 'spacing')
       obj[k] = parseIntList(obj[k])
     else
-      obj[k] = parseInt(obj[k], 10) 
+      obj[k] = parseInt(obj[k], 10)
   }
   return obj
 }
@@ -4181,10 +4181,10 @@ module.exports = function createQuadElements(array, opt) {
 
     var type = typeof opt.type === 'string' ? opt.type : 'uint16'
     var count = typeof opt.count === 'number' ? opt.count : 1
-    var start = (opt.start || 0) 
+    var start = (opt.start || 0)
 
     var dir = opt.clockwise !== false ? CW : CCW,
-        a = dir[0], 
+        a = dir[0],
         b = dir[1],
         c = dir[2]
 
@@ -57961,7 +57961,7 @@ exports.right = function(str){
 
 /**
  * @license
- * webvr-polyfill-dpdb 
+ * webvr-polyfill-dpdb
  * Copyright (c) 2017 Google
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61415,7 +61415,7 @@ module.exports.lines = function wordwrap(text, opt) {
     opt = opt||{}
 
     //zero width results in nothing visible
-    if (opt.width === 0 && opt.mode !== 'nowrap') 
+    if (opt.width === 0 && opt.mode !== 'nowrap')
         return []
 
     text = text||''
@@ -61455,7 +61455,7 @@ function pre(measure, text, start, end, width) {
             var lineEnd = isNewline ? i : i+1
             var measured = measure(text, lineStart, lineEnd, width)
             lines.push(measured)
-            
+
             lineStart = i+1
         }
     }
@@ -61782,7 +61782,7 @@ module.exports = (function xmlparser() {
       var parser = new self.DOMParser()
       return parser.parseFromString(str, 'application/xml')
     }
-  } 
+  }
 
   //IE8 fallback
   if (typeof self.ActiveXObject !== 'undefined'
@@ -62590,7 +62590,7 @@ module.exports.Component = registerComponent('camera', {
   schema: {
     active: {default: true},
     far: {default: 10000},
-    fov: {default: 80, min: 0},
+    fov: {default: 60, min: 0},
     near: {default: 0.005, min: 0},
     spectator: {default: false},
     zoom: {default: 1, min: 0}
