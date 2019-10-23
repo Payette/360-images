@@ -13,13 +13,27 @@
   <body>
     <a-scene>
       <a-assets>
+        <img id="img1" crossorigin="anonymous" src="images/MRI PANORAMA 1.jpg">
+        <img id="img1-thumb" crossorigin="anonymous" src="images/ICON_SLANT.jpg">
+        <img id="img2" crossorigin="anonymous" src="images/MRI PANORAMA 2.jpg">
+        <img id="img2-thumb" crossorigin="anonymous" src="images/ICON_CURVE.jpg">
+        <img id="img3" crossorigin="anonymous" src="images/MRI PANORAMA 3.jpg">
+        <img id="img3-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
+        <img id="img4" crossorigin="anonymous" src="images/MRI PANORAMA 3.jpg">
+        <img id="img4-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
+        <img id="img5" crossorigin="anonymous" src="images/PREP ROOM BONUS RENDER.jpg">
+        <img id="img5-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
+        <img id="img6" crossorigin="anonymous" src="images/PREP ROOM.jpg">
+        <img id="img6-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
         <img id="city" crossorigin="anonymous" src="images/1021_Rendering_Waiting_Panorama.jpg">
-        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="img3-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
+<!--         <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
         <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         <img id="cubes" crossorigin="anonymous" src="images/MRI PANORAMA 1.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="images/MRI PANORAMA 2.jpg">
+        <img id="img1-thumb" crossorigin="anonymous" src="images/ICON_CURVE.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="images/1021_Rendering_Waiting_Panorama.jpg"> -->
 
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
@@ -35,15 +49,18 @@
       </a-assets>
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#city"
+      <a-sky id="image-360" radius="10" src="#img1"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img1" data-thumb="#img1-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img2" data-thumb="#img2-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img3" data-thumb="#img3-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img4" data-thumb="#img4-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img5" data-thumb="#img5-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img6" data-thumb="#img6-thumb"></a-entity>
       </a-entity>
 
       <!-- Camera + cursor. -->
