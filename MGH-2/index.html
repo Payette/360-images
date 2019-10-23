@@ -13,18 +13,19 @@
   <body>
     <a-scene>
       <a-assets>
-        <img id="img1" crossorigin="anonymous" src="images/MRI PANORAMA 1.jpg">
-        <img id="img1-thumb" crossorigin="anonymous" src="images/ICON_SLANT.jpg">
-        <img id="img2" crossorigin="anonymous" src="images/MRI PANORAMA 2.jpg">
-        <img id="img2-thumb" crossorigin="anonymous" src="images/ICON_CURVE.jpg">
-        <img id="img3" crossorigin="anonymous" src="images/MRI PANORAMA 3.jpg">
-        <img id="img3-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
         <img id="img4" crossorigin="anonymous" src="images/1021_Rendering_Waiting_Panorama.jpg">
-        <img id="img4-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
-        <img id="img5" crossorigin="anonymous" src="images/PREP ROOM BONUS RENDER.jpg">
-        <img id="img5-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
-        <img id="img6" crossorigin="anonymous" src="images/PREP ROOM.jpg">
-        <img id="img6-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg">
+        <img id="img4-thumb" crossorigin="anonymous" src="images/ICON_LOBBY-01.jpg">
+        <img id="img5" crossorigin="anonymous" src="images/PREP ROOM.jpg">
+        <img id="img5-thumb" crossorigin="anonymous" src="images/ICON_PREP-01.jpg">
+        <img id="img6" crossorigin="anonymous" src="images/PREP ROOM BONUS RENDER.jpg">
+        <img id="img6-thumb" crossorigin="anonymous" src="images/ICON_RESUSC-01.jpg">
+        <img id="img1" crossorigin="anonymous" src="images/MRI PANORAMA 3.jpg">
+        <img id="img1-thumb" crossorigin="anonymous" src="images/ICON_SCULPT-01.jpg">
+        <img id="img2" crossorigin="anonymous" src="images/MRI PANORAMA 2.jpg">
+        <img id="img2-thumb" crossorigin="anonymous" src="images/ICON_CURVE-01.jpg">
+        <img id="img3" crossorigin="anonymous" src="images/MRI PANORAMA 1.jpg">
+        <img id="img3-thumb" crossorigin="anonymous" src="images/ICON_SLANT-01.jpg">
+        
 <!--         <img id="city" crossorigin="anonymous" src="images/1021_Rendering_Waiting_Panorama.jpg">
         <img id="img3-thumb" crossorigin="anonymous" src="images/ICON_SCULPT.jpg"> -->
 <!--         <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
@@ -57,12 +58,13 @@
       <!-- Camera + cursor. -->
       <a-entity id="camera" camera look-controls position="0 0 0" cursor="rayOrigin: mouse">
         <a-entity id="links" layout="type: line; margin: 1.5" position="-4 -1 -4">
-        <a-entity template="src: #link" data-src="#img1" data-thumb="#img1-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#img2" data-thumb="#img2-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#img3" data-thumb="#img3-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img4" data-thumb="#img4-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img5" data-thumb="#img5-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#img6" data-thumb="#img6-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img1" data-thumb="#img1-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img2" data-thumb="#img2-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#img3" data-thumb="#img3-thumb"></a-entity>
+        
       </a-entity>
 <!--         <a-cursor
           id="cursor"
